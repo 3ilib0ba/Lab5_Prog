@@ -112,10 +112,10 @@ public class Execute {
                                     long comp = Long.parseLong(commands[2]);
                                     new RemoveByLower(map.getMyMap(), comp);
                                 } catch (NumberFormatException e) {
-                                    System.out.println("требуется ввести минимальную площадь, тип - long");
+                                    System.out.println("min square, type - long");
                                 }
                             } else {
-                                System.out.println("Введен неверный формат, необходимо 'remove lower <ЧИСЛО>'");
+                                System.out.println("Wrong format 'remove lower <numeric>'");
                             }
                         } else {
                             System.out.println("remove <...> не воспринята");

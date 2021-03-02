@@ -1,18 +1,20 @@
 {
   "213": {
-    "name": "privet",
+    "name": "flat",
     "area": 1000
   },
   "10": {
-    "name": "lol",
+    "name": "HouseFlat",
     "area": 150
   },
   "15": {
-    "name": "small",
+    "name": "BestFlat",
     "area": 100
   },
   "8": {
-    "name": "big",
-    "area": 160
+    "name": "Home",
+    "area": 160,
+    "numberOfBathrooms": 0,
+    "timeToMetroOnFoot": 0
   }
 }

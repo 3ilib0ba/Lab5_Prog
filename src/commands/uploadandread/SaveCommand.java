@@ -12,12 +12,12 @@ import java.util.TreeMap;
 public class SaveCommand {
     private static int numericOfSave = 1;
     public static void saveTheCollection(TreeMap<Integer, Flat> collection, String name){
-        String path = "C:\\Users\\evonn\\Desktop\\itmoAll\\Программирование\\Лаба_5 прога\\src\\resourse\\saves\\";
+        String path = "../../../src\\resourse\\saves\\";
         try (BufferedWriter bufWr = new BufferedWriter(new FileWriter(path + name + ".json"))) {
             bufWr.write(new Gson().toJson(collection));
             System.out.println("Коллекция сохранена в файл -> " + name + ".json");
         } catch (Exception e) {
-            System.out.println();
+            System.out.println("Не удалось сохранить коллекцию");
         }
     }
 

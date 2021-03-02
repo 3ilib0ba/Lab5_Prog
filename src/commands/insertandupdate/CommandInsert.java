@@ -13,7 +13,7 @@ import static typesfiles.MyTreeMap.ID_MAX;
 
 public class CommandInsert {
     Scanner scanner;
-    private int id = ID_MAX; // Значение поля должно быть больше 0,
+    private int id; // Значение поля должно быть больше 0,
     // Значение этого поля должно быть уникальным,
     // Значение этого поля должно генерироваться автоматически
     private String name; // Поле не может быть null, Строка не может быть пустой
@@ -51,6 +51,7 @@ public class CommandInsert {
             house = setHouse();                         // указали дом
 
             Flat newFlat = Flat.newBuilder()
+                    .setId(id)
                     .setName(name)
                     .setCoordinates(coordinates)
                     .setCreationDate()

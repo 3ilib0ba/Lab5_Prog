@@ -14,26 +14,24 @@ import java.util.NoSuchElementException;
 import java.util.TreeMap;
 
 public class ReadCommand {
-    private static String path = "src/resourse/loads/";
+    private static String path = "../../../src\\resourse\\loads\\";
 
-    public static TreeMap<Integer, Flat> readTheCollection(String name){
+    public static TreeMap<Integer, Flat> readTheCollection(String name) {
         try {
             InputStreamReader reader = new InputStreamReader(new FileInputStream(path + name));
-
+            System.out.println(path + name);
             try (InputStreamReader isr = reader) {
                 int ch;
                 StringBuilder allText = new StringBuilder();
                 while ((ch = isr.read()) != -1)
                     allText.append((char) ch);
-                //if (allText.toString().equals(""))
-                //    throw Inva
+
                 TreeMap<Integer, Flat> loadingCol;
-                Type collectionType = new TypeToken<TreeMap<Integer, Flat>>() {}.getType();
+                Type collectionType = new TypeToken<TreeMap<Integer, Flat>>() {
+                }.getType();
                 loadingCol = new Gson().fromJson(allText.toString(), collectionType);
                 System.out.println("Коллекция успешна загружена!");
                 return loadingCol;
-            } catch(FileNotFoundException e) {
-                System.out.println("Загрузочный файл не найден!");
             } catch (NoSuchElementException e) {
                 System.out.println("Загрузочный файл пуст!");
             } catch (JsonParseException | NullPointerException exception) {
@@ -42,10 +40,8 @@ public class ReadCommand {
                 System.out.println();
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Загрузочный файл не найден!");
         }
-
-        System.out.println("Коллекция не найдена");
         return new TreeMap<>();
     }
 
