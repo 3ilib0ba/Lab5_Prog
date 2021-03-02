@@ -1,0 +1,22 @@
+{
+  "12": {
+    "id": 0,
+    "name": "ddsafa",
+    "coordinates": {
+      "x": 12.0,
+      "y": 12.0
+    },
+    "creationDate": "Mar 2, 2021 2:28:55 AM",
+    "area": 12,
+    "numberOfRooms": 12,
+    "numberOfBathrooms": 12,
+    "timeToMetroOnFoot": 121212,
+    "furnish": "BAD",
+    "house": {
+      "name": "home",
+      "year": 1987,
+      "numberOfFlatsOnFloor": 25,
+      "numberOfLifts": 2
+    }
+  }
+}
