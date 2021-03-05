@@ -2,7 +2,7 @@
   <artifact type="jar" name="Лаба_5 прога:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/_5__jar</output-path>
     <root id="archive" name="Лаба_5 прога.jar">
-      <element id="module-output" name="Лаба_5 прога" />
+      <element id="module-output" name="Lab5" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/Telegram Desktop/gson-2.8.6.jar" path-in-jar="/" />
     </root>
   </artifact>

@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class Execute {
 
     /**
-     * @param map
+     *
      */
 
     public static void execute(MyTreeMap map) {
@@ -42,7 +42,7 @@ public class Execute {
                     if (commands.length == 1) {
                         CommandHelp.helpCommand();
                     } else {
-                        System.out.println("Команда help_<...> не воспринята");
+                        System.out.println("Unknown help_<...> command");
                     }
                     break;
 
@@ -50,7 +50,7 @@ public class Execute {
                     if (commands.length == 1) {
                         CommandInfo.infoCommand(map);
                     } else {
-                        System.out.println("Команда info_<...> не воспринята");
+                        System.out.println("Unknown info_<...> command");
                     }
                     break;
 
@@ -58,67 +58,61 @@ public class Execute {
                     if (commands.length == 1) {
                         CommandShow.showCommand(map);
                     } else {
-                        System.out.println("Команда show_<...> не воспринята");
+                        System.out.println("Unknown show_<...> command");
                     }
                     break;
 
                 case "insert":
                     if (commands.length == 1) {
-                        System.out.println("Ожидается введение ключа элемента");
+                        System.out.println("wait KEY");
                     } else if (commands.length >= 3) {
-                        System.out.println("Команда имеет вид \"insert <ключ нового элемента>\"");
+                        System.out.println("Wrong format. Need -> 'insert <key>'");
                     } else {
                         try {
                             Integer newKey = Integer.parseInt(commands[1]);
-                            CommandInsert commandInsert = new CommandInsert(newKey, map, false);
+                            new CommandInsert(newKey, map, false);
                         } catch (NumberFormatException e) {
-                            System.out.println("требуется ввести ключ нового элемента, тип - Integer");
+                            System.out.println("type key - Integer");
                         }
                     }
                     break;
 
                 case "update":
                     if (commands.length == 1) {
-                        System.out.println("Ожидается введение id элемента");
+                        System.out.println("wait id");
                     } else if (commands.length >= 3) {
-                        System.out.println("Команда имеет вид \"update <id обновляемого элемента>\"");
+                        System.out.println("Wrong format. Need -> 'update <id>'");
                     } else {
                         try {
                             int idUpd = Integer.parseInt(commands[1]);
                             new CommandUpdate(idUpd, map);
                         } catch (NumberFormatException e) {
-                            System.out.println("требуется ввести ключ нового элемента, тип - int");
+                            System.out.println("type of id - int");
                         }
                     }
                     break;
 
-                case "remove":
-                    if (commands.length == 1) {
+                case "remove_key":
+                    if (commands.length != 2) {
+                        System.out.println("Wrong format. Need -> 'remove_key <KEY>'");
                     } else {
-                        if (commands[1].equals("key")) { // обработка команды remove key
-                            if (commands.length == 3) {
-                                try {
-                                    Integer newKey = Integer.parseInt(commands[2]);
-                                    new RemoveByKey(map.getMyMap(), newKey);
-                                } catch (NumberFormatException e) {
-                                    System.out.println("требуется ввести ключ нового элемента, тип - Integer");
-                                }
-                            } else {
-                                System.out.println("Введен неверный формат, необходимо 'remove key <ЧИСЛО>'");
-                            }
-                        } else if (commands[1].equals("lower")) { // обработка команды remove lower
-                            if (commands.length == 3) {
-                                try {
-                                    long comp = Long.parseLong(commands[2]);
-                                    new RemoveByLower(map.getMyMap(), comp);
-                                } catch (NumberFormatException e) {
-                                    System.out.println("min square, type - long");
-                                }
-                            } else {
-                                System.out.println("Wrong format 'remove lower <numeric>'");
-                            }
-                        } else {
-                            System.out.println("remove <...> не воспринята");
+                        try {
+                            Integer newKey = Integer.parseInt(commands[1]);
+                            new RemoveByKey(map.getMyMap(), newKey);
+                        } catch (NumberFormatException e) {
+                            System.out.println("key of object - Integer");
+                        }
+                    }
+                    break;
+                case "remove_lower":
+                    if (commands.length != 2) {
+                        System.out.println("Wrong format 'remove lower <numeric>'");
+                    } else {
+                        try {
+                            long comp = Long.parseLong(commands[1]);
+                            new RemoveByLower(map.getMyMap(), comp);
+                        } catch (NumberFormatException e) {
+                            System.out.println("min square, type - long");
                         }
                     }
                     break;
@@ -127,7 +121,7 @@ public class Execute {
                     if (commands.length == 1) {
                         new ClearCommand(map.getMyMap());
                     } else {
-                        System.out.println("команда clear <...> не распознана");
+                        System.out.println("Unknown clear_<...> command");
                     }
                     break;
 
@@ -135,45 +129,51 @@ public class Execute {
                     if (commands.length == 1) {
                         SaveCommand.startSaveFile(map.getMyMap());
                     } else {
-                        System.out.println("команда save <...> не распознана");
+                        System.out.println("Unknown save_<...> command");
                     }
                     break;
 
                 case "execute_script":
+                    //  write an execute of this command
                     break;
+
                 case "history":
                     if (commands.length == 1) {
                         HistoryCommand.printHistory();
                     } else {
-                        System.out.println("Для получения истории команд введите 'history'");
+                        System.out.println("Unknown history_<...> command");
                     }
                     break;
 
-                case "replace":
-                    if (commands.length == 5 && commands[1].equals("if") && commands[2].equals("lowe")) {
+                case "replace_if_lowe":
+                    if (commands.length == 3) {
                         try {
-                            Integer newKey = Integer.parseInt(commands[3]);
-                            long newArea = Long.parseLong(commands[4]);
+                            Integer newKey = Integer.parseInt(commands[1]);
+                            long newArea = Long.parseLong(commands[2]);
                             new ReplaceByKeyLowe(map.getMyMap(), newKey, newArea);
                         } catch (NumberFormatException e) {
-                            System.out.println("требуется ввести ключ нового элемента, тип - Integer,\n" +
-                                    "а также его новое значение площади, тип - long");
+                            System.out.println("\tkey type - Integer,\n" + "\tarea type - long");
                         }
                     } else {
-                        System.out.println("Формат задан неверно");
+                        System.out.println("Wrong format. Need -> 'replace_if_lowe <key> <long>'");
                     }
                     break;
 
-                case "min":
-                    if (commands.length == 3 && commands[1].equals("by") && commands[2].equals("id")) {
-                        new MinById(map.getMyMap());
+                case "min_by_id":
+                    new MinById(map.getMyMap());
+                    break;
+
+                case "count_less_than_number_of_bathrooms":
+                    if (commands.length == 2) {
+                        try {
+                            int numBath = Integer.parseInt(commands[1]);
+                            new CountLess(map, numBath);
+                        } catch (NumberFormatException e) {
+                            System.out.println("number of bathrooms -> int");
+                        }
                     } else {
-                        System.out.println("Формат команды - 'min by id'");
+                        System.out.println("Wrong format. Need -> 'count_less_than_number_of_bathrooms <NUMBER>'");
                     }
-                    break;
-
-                case "count":
-                    new CountLess(command, map);
                     break;
 
                 case "filter":
