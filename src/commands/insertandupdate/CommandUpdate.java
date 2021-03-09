@@ -24,6 +24,6 @@ public class CommandUpdate {
             if (id == searchId)
                 return entry.getKey();
         }
-        throw new InvalidArg("данного id не найдено в коллекции, обновлять нечего");
+        throw new InvalidArg("the given id was not found in the collection, there is nothing to update");
     }
 }

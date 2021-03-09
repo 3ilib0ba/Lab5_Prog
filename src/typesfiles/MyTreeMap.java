@@ -28,6 +28,6 @@ public class MyTreeMap {
             addMap.get(key).setId(ID_MAX);
             addFlat(key, addMap.get(key));
         }
-        System.out.println("добавлена мапа:\n" + addMap.toString());
+        //System.out.println("добавлена мапа:\n" + addMap.toString());
     }
 }

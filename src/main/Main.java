@@ -16,6 +16,8 @@ public class Main {
             MyMap.addToTree(ReadCommand.readTheCollection(s)); // all files args[] -> Collection
         }
 
+        MyMap.addToTree(ReadCommand.readTheCollection("FLAT.json"));
+
         Execute.execute(MyMap);
     }
 }

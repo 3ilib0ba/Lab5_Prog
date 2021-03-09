@@ -6,9 +6,9 @@ import typesfiles.MyTreeMap;
 public class CommandShow {
     public static void showCommand(MyTreeMap map) {
         if (map.getMyMap().size() == 0) {
-            System.out.println("Коллекция пустая(можно исправить командой insert <key>)");
+            System.out.println("Your collection is empty, use the insert command");
         } else {
-            System.out.println("Вывод всех элементов списка квартир");
+            System.out.println("Display everyone elements in collection");
             for (Integer key : map.getMyMap().keySet()) {
                 System.out.println(map.getMyMap().get(key));
             }

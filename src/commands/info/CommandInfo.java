@@ -8,10 +8,10 @@ import static main.Main.dateOfInit;
 public class CommandInfo {
     public static void infoCommand(MyTreeMap map) {
         System.out.println("Info of map:" +
-                "\n\tТип карты:" + map.getMyMap().getClass() +
-                "\n\tДата инициализации:" + dateOfInit +
-                "\n\tКоличество элементов:" + map.getMyMap().size() +
-                "\n\tДля подробной информации -> show");
+                "\n\tType of map:" + map.getMyMap().getClass() +
+                "\n\tDate of create:" + dateOfInit +
+                "\n\tsize:" + map.getMyMap().size() +
+                "\n\tto show all elements -> show");
 
         HistoryCommand.addHistory("info");
     }

@@ -37,7 +37,7 @@ public class MinById {
             }
         }
         if (keyOfMin == null) {
-            throw new NullMapException("Подана на вход пустая map");
+            throw new NullMapException("Your collection is empty");
         }
         return keyOfMin;
     }

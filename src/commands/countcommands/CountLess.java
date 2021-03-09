@@ -18,8 +18,4 @@ public class CountLess {
 
         HistoryCommand.addHistory("count_less_than_number_of_bathrooms");
     }
-
-    private void countLessThanNumOfBath(MyTreeMap map, int numBath) {
-
-    }
 }

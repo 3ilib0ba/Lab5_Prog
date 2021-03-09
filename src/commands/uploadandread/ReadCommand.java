@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 import java.util.TreeMap;
 
 public class ReadCommand {
-    private static String path = "../../../src\\resourse\\loads\\";
+    private static String path = "saves\\";
 
     public static TreeMap<Integer, Flat> readTheCollection(String name) {
         try {
@@ -30,17 +30,17 @@ public class ReadCommand {
                 Type collectionType = new TypeToken<TreeMap<Integer, Flat>>() {
                 }.getType();
                 loadingCol = new Gson().fromJson(allText.toString(), collectionType);
-                System.out.println("Коллекция успешна загружена!");
+                System.out.println("Collection loaded successfully!");
                 return loadingCol;
             } catch (NoSuchElementException e) {
-                System.out.println("Загрузочный файл пуст!");
+                System.out.println("the loaded file is empty!");
             } catch (JsonParseException | NullPointerException exception) {
-                System.out.println("В загрузочном файле не обнаружена необходимая коллекция!");
+                System.out.println("Wrong format in the file!");
             } catch (Exception e) {
-                System.out.println();
+                System.out.println("Error");
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Загрузочный файл не найден!");
+            System.out.println("File not found");
         }
         return new TreeMap<>();
     }

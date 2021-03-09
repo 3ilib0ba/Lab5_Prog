@@ -19,11 +19,6 @@ import typesfiles.MyTreeMap;
 import java.util.Scanner;
 
 public class Execute {
-
-    /**
-     *
-     */
-
     public static void execute(MyTreeMap map) {
         Scanner SCANNER = new Scanner(System.in);
         String command, execCom;
@@ -176,8 +171,8 @@ public class Execute {
                     }
                     break;
 
-                case "filter":
-                    new FilterStartsByName(map, command);
+                case "filter_starts_by_name":
+                    new FilterStartsByName(map, commands);
                     break;
 
                 case "exit":

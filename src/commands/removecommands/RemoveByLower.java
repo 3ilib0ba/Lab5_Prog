@@ -10,7 +10,6 @@ import java.util.TreeMap;
 
 public class RemoveByLower {
     public RemoveByLower(TreeMap<Integer, Flat> map, long areaAtr) {
-        //System.out.println(map);
         List<Integer> keysRemoved = new LinkedList<>();
 
         map.forEach((key, value) -> {

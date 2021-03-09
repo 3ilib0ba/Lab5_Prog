@@ -66,28 +66,25 @@ public class CommandInsert {
 
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
-            return;
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
-            return;
+            System.out.println("Wrong format");
         }
-        System.out.println("Все шаги пройдены у инсерта");
     }
 
     private String setName()
             throws InvalidArg {
         try {
-            System.out.print("Введите имя объекту: ");
+            System.out.print("Input name: ");
             String a = scanner.nextLine();
             if (a.equals("")) {
-                throw new InvalidArg("Имя не может быть пустым");
+                throw new InvalidArg("Name isn't empty");
             }
             return a;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setName();
         } catch (Exception e) {
-            System.out.println("Неудалось ввести имя");
+            System.out.println("Error input");
             return setName();
         }
     }
@@ -95,18 +92,18 @@ public class CommandInsert {
     private Float setNewX()
             throws InvalidArg {
         try {
-            System.out.print("Введите координату X объекту: ");
+            System.out.print("Input X coordinate: ");
             String answer = scanner.nextLine();
             float newX = Float.parseFloat(answer);
             if (newX < 0f || newX > 483f) {
-                throw new InvalidArg("X координата есть число от 0 до 483");
+                throw new InvalidArg("X in [0; 483]");
             }
             return newX;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setNewX();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setNewX();
         }
     }
@@ -114,18 +111,18 @@ public class CommandInsert {
     private double setNewY()
             throws InvalidArg {
         try {
-            System.out.print("Введите координату Y объекту: ");
+            System.out.print("Input Y coordinate: ");
             String answer = scanner.nextLine();
             double newY = Double.parseDouble(answer);
             if (newY < 0 || newY > 311) {
-                throw new InvalidArg("Y координата есть число от 0 до 311");
+                throw new InvalidArg("Y in [0; 311]");
             }
             return newY;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setNewY();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setNewY();
         }
     }
@@ -133,18 +130,18 @@ public class CommandInsert {
     private long setNewArea()
             throws InvalidArg {
         try {
-            System.out.print("Введите AREA объекту: ");
+            System.out.print("Input area to object: ");
             String answer = scanner.nextLine();
             long newArea = Long.parseLong(answer);
             if (newArea <= 0 || newArea > 667) {
-                throw new InvalidArg("AREA у объекта есть число от 0 до 667");
+                throw new InvalidArg("AREA in [0; 667]");
             }
             return newArea;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setNewArea();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setNewArea();
         }
     }
@@ -152,21 +149,21 @@ public class CommandInsert {
     private Long setNumOfRooms()
             throws InvalidArg {
         try {
-            System.out.print("Введите количество комнат(можно не указывать): ");
+            System.out.print("Input count of rooms: ");
             String answer = scanner.nextLine();
             if (answer.equals("")) {
                 return null;
             }
             Long newNum = Long.parseLong(answer);
             if (newNum <= 0) {
-                throw new InvalidArg("Количество комнат — это положительное число");
+                throw new InvalidArg("count > 0");
             }
             return newNum;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setNumOfRooms();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setNumOfRooms();
         }
     }
@@ -174,49 +171,49 @@ public class CommandInsert {
     private int setNumOfBathrooms()
             throws InvalidArg {
         try {
-            System.out.print("Введите количество ванных комнат: ");
+            System.out.print("Input count of bathrooms: ");
             String answer = scanner.nextLine();
             int number = Integer.parseInt(answer);
             if (number <= 0) {
-                throw new InvalidArg("Количество ванных — это положительное число");
+                throw new InvalidArg("count > 0");
             }
             return number;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setNumOfBathrooms();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setNumOfBathrooms();
         }
     }
 
     private long setTimeMetro() {
         try {
-            System.out.print("Введите время, нужное чтобы добраться до метро: ");
+            System.out.print("Input time of walk to the metro: ");
             String answer = scanner.nextLine();
             long number = Long.parseLong(answer);
             if (number <= 0) {
-                throw new InvalidArg("Время только положительным бывает");
+                throw new InvalidArg("Time > 0");
             }
             return number;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setTimeMetro();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setTimeMetro();
         }
     }
 
     private Furnish setFurnish() {
-        System.out.print("Введите характеристику интерьера, возможные варианты:" + "\n" +
+        System.out.print("Input characteristics of the interior:" + "\n" +
                 "\t\t" + "1) Designer" + "\n" +
                 "\t\t" + "2) None" + "\n" +
                 "\t\t" + "3) Fine" + "\n" +
                 "\t\t" + "4) Bad" + "\n" +
                 "\t\t" + "5) Little" + "\n"
         );
-        System.out.print("Ваш выбор: ");
+        System.out.print("Your choice: ");
         String answer = scanner.nextLine();
         switch (answer.toUpperCase()) {
             case "DESIGNER":
@@ -230,7 +227,7 @@ public class CommandInsert {
             case "LITTLE":
                 return Furnish.LITTLE;
             default:
-                System.out.println("Что-то пошло не так, попробуем снова");
+                System.out.println("Input error, try it again");
                 return setFurnish();
         }
     }
@@ -246,18 +243,18 @@ public class CommandInsert {
     private int setYear()
             throws InvalidArg {
         try {
-            System.out.print("Введите год постройки дома: ");
+            System.out.print("Enter the year the house was built: ");
             String answer = scanner.nextLine();
             int number = Integer.parseInt(answer);
             if (number <= 0) {
-                throw new InvalidArg("Наверняка дом из нашей эры");
+                throw new InvalidArg("year > 0");
             }
             return number;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setYear();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Enter error");
             return setYear();
         }
     }
@@ -265,18 +262,18 @@ public class CommandInsert {
     private int setNumberOfFlatsOnFloor()
             throws InvalidArg {
         try {
-            System.out.print("Введите количество квартир на этаже: ");
+            System.out.print("Enter the number of flats per floor: ");
             String answer = scanner.nextLine();
             int number = Integer.parseInt(answer);
             if (number <= 0) {
-                throw new InvalidArg("квартир на этаже должно быть больше 0");
+                throw new InvalidArg("number of flats > 0");
             }
             return number;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setNumberOfFlatsOnFloor();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setNumberOfFlatsOnFloor();
         }
     }
@@ -284,18 +281,18 @@ public class CommandInsert {
     private int setNumberOfLifts()
             throws InvalidArg {
         try {
-            System.out.print("Сколько в доме лифтов: ");
+            System.out.print("How many lifts in the house: ");
             String answer = scanner.nextLine();
             int number = Integer.parseInt(answer);
             if (number <= 0) {
-                throw new InvalidArg("Должен быть хотя бы 1 лифт");
+                throw new InvalidArg("count of lifts > 0");
             }
             return number;
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
             return setNumberOfLifts();
         } catch (Exception e) {
-            System.out.println("Неверный ввод");
+            System.out.println("Input error");
             return setNumberOfLifts();
         }
     }
@@ -307,7 +304,7 @@ public class CommandInsert {
         int numberOfFlatsOnFloor;   //Значение поля должно быть больше 0
         Integer numberOfLifts;      //Значение поля должно быть больше 0
 
-        System.out.println("Для создания дома необходимо задать некоторые его атрибуты");
+        System.out.println("creating a house");
 
         name = setName();
         year = setYear();

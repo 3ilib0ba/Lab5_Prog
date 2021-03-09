@@ -11,22 +11,23 @@ import java.util.TreeMap;
 
 public class SaveCommand {
     private static int numericOfSave = 1;
-    public static void saveTheCollection(TreeMap<Integer, Flat> collection, String name){
-        String path = "../../../src\\resourse\\saves\\";
+
+    public static void saveTheCollection(TreeMap<Integer, Flat> collection, String name) {
+        String path = "saves\\";
         try (BufferedWriter bufWr = new BufferedWriter(new FileWriter(path + name + ".json"))) {
             bufWr.write(new Gson().toJson(collection));
-            System.out.println("Коллекция сохранена в файл -> " + name + ".json");
+            System.out.println("Saved into -> " + name + ".json");
         } catch (Exception e) {
-            System.out.println("Не удалось сохранить коллекцию");
+            System.out.println("Error");
         }
     }
 
     public static void startSaveFile(TreeMap<Integer, Flat> map) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Имя файла, в который необходимо сохранить коллекцию: ");
+        System.out.print("Input filename: ");
         String name = scanner.nextLine();
         if (name.equals("")) {
-            System.out.println("Сохранение в файл с именем по умолчанию");
+            System.out.println("casual filename");
             new SaveCommand(map);
         } else {
             new SaveCommand(map, name);
@@ -35,13 +36,13 @@ public class SaveCommand {
         HistoryCommand.addHistory("Save");
     }
 
-    public SaveCommand(TreeMap<Integer, Flat> collection){
+    public SaveCommand(TreeMap<Integer, Flat> collection) {
         String name = "save " + numericOfSave;
         saveTheCollection(collection, name);
         numericOfSave++;
     }
 
-    public SaveCommand(TreeMap<Integer, Flat> collection, String name){
+    public SaveCommand(TreeMap<Integer, Flat> collection, String name) {
         saveTheCollection(collection, name);
     }
 }

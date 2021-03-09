@@ -19,7 +19,7 @@ public class CommandHelp {
                 "\n\treplace_if_lowe <KEY, AREA>: replace obj if it area less than AREA with this KEY" +
                 "\n\tmin_by_id: show object with min id" +
                 "\n\tcount_less_than_number_of_bathrooms <NUMBER>: show count of objects with number of bathrooms less than NUMBER" +
-                "\n\tfilter_starts_with_name <STARTofNAME>: show all objects with name starting like as STARTofNAME" +
+                "\n\tfilter_starts_by_name <STARTofNAME>: show all objects with name starting like as STARTofNAME" +
 
                 "\n\texit: exit from program" +
                 "\n");

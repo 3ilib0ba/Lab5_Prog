@@ -9,9 +9,9 @@ public class RemoveByKey {
     public RemoveByKey(TreeMap<Integer, Flat> map, Integer keyRemoved) {
         if (map.containsKey(keyRemoved)) {
             Flat removed = map.remove(keyRemoved);
-            System.out.println("Удален объект " + removed);
+            System.out.println("Remove object " + removed);
         } else {
-            System.out.println("Элементы с таким key не найден");
+            System.out.println("Element with this key not found");
         }
 
         HistoryCommand.addHistory("remove key <...>");
