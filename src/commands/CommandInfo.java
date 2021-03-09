@@ -1,6 +1,6 @@
 package commands;
 
-import typesfiles.MyTreeMap;
+import main.MyTreeMap;
 
 import static main.Main.dateOfInit;
 

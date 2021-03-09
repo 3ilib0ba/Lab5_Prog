@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 import typesfiles.Flat;
-import typesfiles.MyTreeMap;
+import main.MyTreeMap;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

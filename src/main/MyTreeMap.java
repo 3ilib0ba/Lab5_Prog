@@ -1,4 +1,6 @@
-package typesfiles;
+package main;
+
+import typesfiles.Flat;
 
 import java.util.TreeMap;
 

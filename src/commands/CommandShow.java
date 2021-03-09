@@ -1,6 +1,6 @@
 package commands;
 
-import typesfiles.MyTreeMap;
+import main.MyTreeMap;
 
 public class CommandShow {
     public static void showCommand(MyTreeMap map) {

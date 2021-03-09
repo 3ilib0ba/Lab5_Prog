@@ -1,6 +1,6 @@
 package commands;
 
-import typesfiles.MyTreeMap;
+import main.MyTreeMap;
 
 public class FilterStartsByName {
     public FilterStartsByName(MyTreeMap map, String[] command) {

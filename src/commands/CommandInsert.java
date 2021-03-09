@@ -1,6 +1,6 @@
 package commands;
 
-import typesfiles.MyTreeMap;
+import main.MyTreeMap;
 import typesfiles.Coordinates;
 import typesfiles.Flat;
 import typesfiles.Furnish;
@@ -8,7 +8,7 @@ import typesfiles.House;
 
 import java.util.Scanner;
 
-import static typesfiles.MyTreeMap.ID_MAX;
+import static main.MyTreeMap.ID_MAX;
 
 public class CommandInsert {
     Scanner scanner;

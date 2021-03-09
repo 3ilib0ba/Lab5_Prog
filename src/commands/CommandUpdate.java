@@ -1,6 +1,6 @@
 package commands;
 
-import typesfiles.MyTreeMap;
+import main.MyTreeMap;
 import typesfiles.Flat;
 
 import java.util.Map;
