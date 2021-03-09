@@ -1,0 +1,17 @@
+package commands;
+
+import typesfiles.MyTreeMap;
+
+import static main.Main.dateOfInit;
+
+public class CommandInfo {
+    public static void infoCommand(MyTreeMap map) {
+        System.out.println("Info of map:" +
+                "\n\tType of map:" + map.getMyMap().getClass() +
+                "\n\tDate of create:" + dateOfInit +
+                "\n\tsize:" + map.getMyMap().size() +
+                "\n\tto show all elements -> show");
+
+        HistoryCommand.addHistory("info");
+    }
+}

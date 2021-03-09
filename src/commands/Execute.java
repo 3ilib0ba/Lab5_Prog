@@ -1,19 +1,5 @@
 package commands;
 
-import commands.countcommands.CountLess;
-import commands.filterbyargument.FilterStartsByName;
-import commands.help.CommandHelp;
-import commands.history.HistoryCommand;
-import commands.info.CommandInfo;
-import commands.insertandupdate.CommandInsert;
-import commands.insertandupdate.CommandUpdate;
-import commands.minbyid.MinById;
-import commands.removecommands.ClearCommand;
-import commands.removecommands.RemoveByKey;
-import commands.removecommands.RemoveByLower;
-import commands.replace.ReplaceByKeyLowe;
-import commands.show.CommandShow;
-import commands.uploadandread.SaveCommand;
 import typesfiles.MyTreeMap;
 
 import java.util.Scanner;
