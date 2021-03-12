@@ -20,6 +20,7 @@ public class ReadCommand {
         try {
             InputStreamReader reader = new InputStreamReader(new FileInputStream(path + name));
             System.out.println(path + name);
+
             try (InputStreamReader isr = reader) {
                 int ch;
                 StringBuilder allText = new StringBuilder();
@@ -39,6 +40,7 @@ public class ReadCommand {
             } catch (Exception e) {
                 System.out.println("Error");
             }
+
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }

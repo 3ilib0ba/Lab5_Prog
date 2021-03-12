@@ -115,7 +115,8 @@ public class Execute {
                     break;
 
                 case "execute_script":
-                    //  write an execute of this command
+                    //  TODO проверить на работоспособность вывод файла из jar запускать
+                    new ExecuteScript(map, "script1");
                     break;
 
                 case "history":
@@ -162,11 +163,11 @@ public class Execute {
                     break;
 
                 case "exit":
-                    System.out.println("Завершаю программу");
+                    System.out.println("goodbye...");
                     return;
 
                 default:
-                    System.out.println("Команда не распознана");
+                    System.out.println("Command not found");
                     break;
             }
         }
