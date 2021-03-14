@@ -115,8 +115,8 @@ public class Execute {
                     break;
 
                 case "execute_script":
-                    //  TODO проверить на работоспособность вывод файла из jar запускать
-                    new ExecuteScript(map, "script1");
+                    //TODO вызывать от конкретной строки
+                    new ExecuteScript(map, commands[1]);
                     break;
 
                 case "history":

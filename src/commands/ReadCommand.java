@@ -14,12 +14,12 @@ import java.util.NoSuchElementException;
 import java.util.TreeMap;
 
 public class ReadCommand {
-    private static String path = "saves\\";
-
     public static TreeMap<Integer, Flat> readTheCollection(String name) {
+        //TODO Разобраться с путями
+
         try {
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(path + name));
-            System.out.println(path + name);
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(name));
+            System.out.println(name);
 
             try (InputStreamReader isr = reader) {
                 int ch;
@@ -48,6 +48,5 @@ public class ReadCommand {
     }
 
     public static void allchecking(MyTreeMap map) {
-
     }
 }

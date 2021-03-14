@@ -11,8 +11,9 @@ import java.util.TreeMap;
 public class SaveCommand {
     private static int numericOfSave = 1;
 
+    //TODO Разобраться с путями
     public static void saveTheCollection(TreeMap<Integer, Flat> collection, String name) {
-        String path = "saves\\";
+        String path = "";
         try (BufferedWriter bufWr = new BufferedWriter(new FileWriter(path + name + ".json"))) {
             bufWr.write(new Gson().toJson(collection));
             System.out.println("Saved into -> " + name + ".json");
