@@ -4,6 +4,9 @@ import main.MyTreeMap;
 
 import static main.Main.dateOfInit;
 
+/**
+ * Class with 'info' command. Output main information about MAP.
+ */
 public class CommandInfo {
     public static void infoCommand(MyTreeMap map) {
         System.out.println("Info of map:" +

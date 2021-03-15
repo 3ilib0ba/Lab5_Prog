@@ -5,6 +5,9 @@ import typesfiles.Flat;
 
 import java.util.Map;
 
+/**
+ * Class with 'count_less_than_number_of_bathrooms' command. Output number of flats with number of bathrooms less than given
+ */
 public class CountLess {
     public CountLess(MyTreeMap map, int number) {
         int counter = 0;

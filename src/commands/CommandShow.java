@@ -2,6 +2,9 @@ package commands;
 
 import main.MyTreeMap;
 
+/**
+ * Class with 'show' command. Output all flats.
+ */
 public class CommandShow {
     public static void showCommand(MyTreeMap map) {
         if (map.getMyMap().size() == 0) {

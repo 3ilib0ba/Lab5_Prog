@@ -11,6 +11,9 @@ import java.util.Scanner;
 
 import static main.MyTreeMap.ID_MAX;
 
+/**
+ * Class with 'insert' command. Add a new flat to MAP.
+ */
 public class CommandInsert {
     Scanner scanner;
     private int id; // Значение поля должно быть больше 0,
@@ -35,6 +38,14 @@ public class CommandInsert {
             HistoryCommand.addHistory("Insert");
     }
 
+    /**
+     * function to save new attributes
+     *
+     * @param key        - key of object
+     * @param map        - MAP
+     * @param scanner    - type of program mod
+     * @param fromUpdate - type of updating
+     */
     private void execute(Integer key, MyTreeMap map, Scanner scanner, boolean fromUpdate) {
         this.scanner = scanner;
 
@@ -239,11 +250,25 @@ public class CommandInsert {
 
     /**
      * Далее метод setHouse возвращает новый объект класса House
-     * Прочие методы вспомогательные
-     *
      * @return House
-     * @throws InvalidArg
+     * @throws InvalidArg - пробрасывание неверного формата для данных
      */
+    private House setHouse()
+            throws InvalidArg {
+        String name;                    //Поле не может быть null
+        int year;                       //Значение поля должно быть больше 0
+        int numberOfFlatsOnFloor;   //Значение поля должно быть больше 0
+        Integer numberOfLifts;      //Значение поля должно быть больше 0
+
+        System.out.println("creating a house");
+
+        name = setName();
+        year = setYear();
+        numberOfFlatsOnFloor = setNumberOfFlatsOnFloor();
+        numberOfLifts = setNumberOfLifts();
+
+        return new House(name, year, numberOfFlatsOnFloor, numberOfLifts);
+    }
 
     private int setYear()
             throws InvalidArg {
@@ -302,21 +327,5 @@ public class CommandInsert {
         }
     }
 
-    private House setHouse()
-            throws InvalidArg {
-        String name;                    //Поле не может быть null
-        int year;                       //Значение поля должно быть больше 0
-        int numberOfFlatsOnFloor;   //Значение поля должно быть больше 0
-        Integer numberOfLifts;      //Значение поля должно быть больше 0
-
-        System.out.println("creating a house");
-
-        name = setName();
-        year = setYear();
-        numberOfFlatsOnFloor = setNumberOfFlatsOnFloor();
-        numberOfLifts = setNumberOfLifts();
-
-        return new House(name, year, numberOfFlatsOnFloor, numberOfLifts);
-    }
 
 }

@@ -7,6 +7,9 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.TreeSet;
 
+/**
+ * Class with 'execute_script' command. Execute script(file with command) with given name.
+ */
 public class ExecuteScript {
     public static TreeSet<File> openFiles = new TreeSet<>();
 

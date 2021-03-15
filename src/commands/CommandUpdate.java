@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+/**
+ * Class with 'update' command. Search flat with given id and replace it to new flat.
+ */
 public class CommandUpdate {
     public CommandUpdate(int idUpd, MyTreeMap map, Scanner scanner){
         try {
@@ -19,6 +22,13 @@ public class CommandUpdate {
         }
     }
 
+    /**
+     * function for checking given id to existing in the MAP.
+     * @param searchId - given id
+     * @param map - given MAP to search
+     * @return
+     * @throws InvalidArg
+     */
     private Integer checkId(int searchId, TreeMap<Integer, Flat> map)
             throws InvalidArg{
         for (Map.Entry<Integer, Flat> entry : map.entrySet()) {

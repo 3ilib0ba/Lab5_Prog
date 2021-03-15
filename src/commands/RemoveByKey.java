@@ -4,6 +4,9 @@ import typesfiles.Flat;
 
 import java.util.TreeMap;
 
+/**
+ * Class with 'remove_key' command. Removing flat with given key.
+ */
 public class RemoveByKey {
     public RemoveByKey(TreeMap<Integer, Flat> map, Integer keyRemoved) {
         if (map.containsKey(keyRemoved)) {

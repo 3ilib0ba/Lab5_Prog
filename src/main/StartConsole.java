@@ -5,6 +5,9 @@ import commands.exceptions.ExitException;
 
 import java.util.Scanner;
 
+/**
+ * class to start console mode
+ */
 public class StartConsole {
     public static void StartConsoleMode(MyTreeMap MyMap){
         try {

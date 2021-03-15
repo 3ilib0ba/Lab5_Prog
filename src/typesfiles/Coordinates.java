@@ -1,5 +1,8 @@
 package typesfiles;
 
+/**
+ * Home position class
+ */
 public class Coordinates {
     private float x; //Максимальное значение поля: 483
     private double y; //Максимальное значение поля: 311
@@ -9,16 +12,28 @@ public class Coordinates {
         this.y = y;
     }
 
+    /**
+     * @return - a coordinate X of house
+     */
     public float getX() { return x; }
 
+    /**
+     * @param x - set new coordinate X
+     */
     public void setX(float x) {
         this.x = x;
     }
 
+    /**
+     * @return - a coordinate Y of house
+     */
     public double getY() {
         return y;
     }
 
+    /**
+     * @param y - set new coordinate Y
+     */
     public void setY(double y) {
         this.y = y;
     }

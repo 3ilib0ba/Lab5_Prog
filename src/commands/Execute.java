@@ -6,11 +6,21 @@ import main.MyTreeMap;
 
 import java.util.Scanner;
 
+/**
+ * Class with execute all program and all command from console.
+ */
 public class Execute {
     public Execute(boolean isFromFile, MyTreeMap map, Scanner scanner) {
         execute(isFromFile, map, scanner);
     }
 
+    /**
+     * function for defining a command and its execution
+     * @param isFromFile - var to check about execute_script command
+     * @param map - MAP with objects
+     * @param SCANNER - mod of program
+     * @throws ExitException
+     */
     public static void execute(boolean isFromFile, MyTreeMap map, Scanner SCANNER)
             throws ExitException {
         String command, execCom;
@@ -122,7 +132,7 @@ public class Execute {
 
                 case "save":
                     if (commands.length == 1) {
-                        SaveCommand.startSaveFile(map.getMyMap());
+                        SaveCommand.startSaveFile(map.getMyMap(), SCANNER);
                     } else {
                         System.out.println("Unknown save_<...> command");
                     }

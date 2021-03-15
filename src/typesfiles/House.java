@@ -1,5 +1,8 @@
 package typesfiles;
 
+/**
+ * Class of house type of flat
+ */
 public class House {
     private String name; //Поле не может быть null
     private int year; //Значение поля должно быть больше 0
@@ -10,6 +13,13 @@ public class House {
 
     }
 
+    /**
+     * Constructor for create a new house
+     * @param name set new name
+     * @param year set new year of building
+     * @param numberOfFlatsOnFloor set number of flats on floor
+     * @param numberOfLifts set number of lifts
+     */
     public House(String name, int year, int numberOfFlatsOnFloor, Integer numberOfLifts) {
         this.name = name;
         this.year = year;
@@ -17,10 +27,16 @@ public class House {
         this.numberOfLifts = numberOfLifts;
     }
 
+    /**
+     * @return name of this house
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name set new name of this house
+     */
     public void setName(String name) {
         this.name = name;
     }

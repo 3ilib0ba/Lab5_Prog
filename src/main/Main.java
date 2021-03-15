@@ -4,6 +4,10 @@ import commands.ReadCommand;
 
 import java.util.Date;
 
+/**
+ * Main class -- start of program
+ * @author Evgeniy Ivanov, P3113
+ */
 public class Main {
     public static Date dateOfInit;
 
@@ -14,7 +18,7 @@ public class Main {
             MyMap.addToTree(ReadCommand.readTheCollection(s)); // all files args[] -> Collection
         }
 
-        MyMap.addToTree(ReadCommand.readTheCollection("src/resourse/saves/FLAT.json"));
+        //MyMap.addToTree(ReadCommand.readTheCollection("src/resourse/saves/FLAT.json"));
 
         StartConsole.StartConsoleMode(MyMap);
     }

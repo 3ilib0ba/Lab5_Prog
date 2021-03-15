@@ -13,7 +13,15 @@ import java.lang.reflect.Type;
 import java.util.NoSuchElementException;
 import java.util.TreeMap;
 
+/**
+ * Class for reading *.json files and taking flats from it.
+ */
 public class ReadCommand {
+    /**
+     * method for getting a map ith flats
+     * @param name - name of file
+     * @return map to merge with main MAP
+     */
     public static TreeMap<Integer, Flat> readTheCollection(String name) {
         try {
             InputStreamReader reader = new InputStreamReader(new FileInputStream(name));
@@ -45,7 +53,7 @@ public class ReadCommand {
         return new TreeMap<>();
     }
 
-    public static void allchecking(MyTreeMap map) {
+    /*public static void allchecking(MyTreeMap map) {
 
-    }
+    } */
 }

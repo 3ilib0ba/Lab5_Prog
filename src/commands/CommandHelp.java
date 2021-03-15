@@ -1,5 +1,8 @@
 package commands;
 
+/**
+ * Class with 'help' command. Output help about commands.
+ */
 public class CommandHelp {
     public static void helpCommand() {
         System.out.println("list of commands:" +

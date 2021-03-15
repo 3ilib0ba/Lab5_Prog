@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
 
+/**
+ * it's a 'remove_lower' command. Removing all flats from MAP with area less than given
+ */
 public class RemoveByLower {
     public RemoveByLower(TreeMap<Integer, Flat> map, long areaAtr) {
         List<Integer> keysRemoved = new LinkedList<>();
