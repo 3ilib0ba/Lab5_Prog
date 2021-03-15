@@ -27,7 +27,7 @@ public class CommandInsert {
     private House house;
 
     public CommandInsert(Integer key, MyTreeMap map, boolean fromUpdate, Scanner scanner) {
-        execute(key, map, scanner);
+        execute(key, map, scanner, fromUpdate);
 
         if (fromUpdate)
             HistoryCommand.addHistory("Update");
@@ -35,9 +35,14 @@ public class CommandInsert {
             HistoryCommand.addHistory("Insert");
     }
 
-    private void execute(Integer key, MyTreeMap map, Scanner scanner){
+    private void execute(Integer key, MyTreeMap map, Scanner scanner, boolean fromUpdate) {
         this.scanner = scanner;
-        id = ID_MAX;
+
+        if (!fromUpdate) {
+            id = ID_MAX;
+        } else {
+            id = map.getMyMap().get(key).getId();
+        }
 
         try {
             name = this.setName();          // обработка имени
