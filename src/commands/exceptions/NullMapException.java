@@ -1,7 +1,7 @@
-package commands;
+package commands.exceptions;
 
 public class NullMapException extends RuntimeException{
-    NullMapException(String message){
+    public NullMapException(String message){
         super(message);
     }
 }

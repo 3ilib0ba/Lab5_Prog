@@ -1,6 +1,5 @@
 package main;
 
-import commands.Execute;
 import commands.ReadCommand;
 
 import java.util.Date;
@@ -14,7 +13,9 @@ public class Main {
         for (String s : args) {
             MyMap.addToTree(ReadCommand.readTheCollection(s)); // all files args[] -> Collection
         }
-        //MyMap.addToTree(ReadCommand.readTheCollection("FLAT.json"));
-        Execute.execute(MyMap);
+
+        MyMap.addToTree(ReadCommand.readTheCollection("src/resourse/saves/FLAT.json"));
+
+        StartConsole.StartConsoleMode(MyMap);
     }
 }

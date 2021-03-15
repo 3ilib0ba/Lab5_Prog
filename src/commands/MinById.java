@@ -1,5 +1,6 @@
 package commands;
 
+import commands.exceptions.NullMapException;
 import typesfiles.Flat;
 
 import java.util.Map;

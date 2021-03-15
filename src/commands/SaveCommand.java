@@ -12,7 +12,7 @@ public class SaveCommand {
     private static int numericOfSave = 1;
 
     public static void saveTheCollection(TreeMap<Integer, Flat> collection, String name) {
-        String path = "saves\\";
+        String path = "saves/";
         try (BufferedWriter bufWr = new BufferedWriter(new FileWriter(path + name + ".json"))) {
             bufWr.write(new Gson().toJson(collection));
             System.out.println("Saved into -> " + name + ".json");

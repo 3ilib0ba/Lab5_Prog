@@ -1,7 +1,7 @@
-package commands;
+package commands.exceptions;
 
 public class InvalidArg extends RuntimeException {
-    InvalidArg(String message) {
+    public InvalidArg(String message) {
         super(message);
     }
 }

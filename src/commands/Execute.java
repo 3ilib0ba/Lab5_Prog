@@ -1,18 +1,27 @@
 package commands;
 
+import commands.exceptions.ExitException;
 import main.MyTreeMap;
 
 import java.util.Scanner;
 
 public class Execute {
-    public static void execute(MyTreeMap map) {
-        Scanner SCANNER = new Scanner(System.in);
+    public Execute(boolean isFromFile, MyTreeMap map, Scanner scanner){
+        execute(isFromFile, map, scanner);
+    }
+
+    public static void execute(boolean isFromFile, MyTreeMap map, Scanner SCANNER)
+            throws ExitException{
+
+        //Scanner SCANNER = new Scanner(System.in);
         String command, execCom;
         String[] commands;
 
         do {
             System.out.print("Enter the command: ");
             command = SCANNER.nextLine(); // ожидание новой команды
+            if (isFromFile)
+                System.out.println(command);
 
             commands = command.toLowerCase().split(" ");
             execCom = commands[0];
@@ -115,8 +124,11 @@ public class Execute {
                     break;
 
                 case "execute_script":
-                    //  TODO проверить на работоспособность вывод файла из jar запускать
-                    new ExecuteScript(map, "script1");
+                    if (commands.length == 2) {
+                        new ExecuteScript(map, commands[1]);
+                    } else {
+                        System.out.println("Wrong format");
+                    }
                     break;
 
                 case "history":
@@ -163,8 +175,7 @@ public class Execute {
                     break;
 
                 case "exit":
-                    System.out.println("goodbye...");
-                    return;
+                    throw new ExitException();
 
                 default:
                     System.out.println("Command not found");

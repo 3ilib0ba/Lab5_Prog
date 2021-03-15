@@ -1,5 +1,6 @@
 package commands;
 
+import commands.exceptions.InvalidArg;
 import main.MyTreeMap;
 import typesfiles.Flat;
 

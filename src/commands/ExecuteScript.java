@@ -6,10 +6,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class ExecuteScript {
     public ExecuteScript(MyTreeMap map, String fileName) {
-        String path = "scripts\\" + fileName;
+        String path = fileName;
 
         try {
             InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(path));
@@ -21,8 +22,9 @@ public class ExecuteScript {
             while ((nowChar = inputStreamReader.read()) != -1)
                 allText.append((char) nowChar);
 
-            System.out.println(allText.toString());
+            Scanner scanOfExecutFile = new Scanner(allText.toString());
 
+            new Execute(true, map, scanOfExecutFile);
         } catch (FileNotFoundException e) {
             System.out.println("File not found...");
         } catch (IOException e) {
