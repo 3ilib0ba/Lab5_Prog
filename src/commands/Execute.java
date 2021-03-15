@@ -1,24 +1,29 @@
 package commands;
 
 import commands.exceptions.ExitException;
+import commands.exceptions.RecursionException;
 import main.MyTreeMap;
 
 import java.util.Scanner;
 
 public class Execute {
-    public Execute(boolean isFromFile, MyTreeMap map, Scanner scanner){
+    public Execute(boolean isFromFile, MyTreeMap map, Scanner scanner) {
         execute(isFromFile, map, scanner);
     }
 
     public static void execute(boolean isFromFile, MyTreeMap map, Scanner SCANNER)
-            throws ExitException{
-
-        //Scanner SCANNER = new Scanner(System.in);
+            throws ExitException {
         String command, execCom;
         String[] commands;
 
         do {
+
             System.out.print("Enter the command: ");
+
+            if (!SCANNER.hasNextLine()) {
+                System.out.println("ending");
+                return;
+            }
             command = SCANNER.nextLine(); // ожидание новой команды
             if (isFromFile)
                 System.out.println(command);
@@ -60,7 +65,7 @@ public class Execute {
                     } else {
                         try {
                             Integer newKey = Integer.parseInt(commands[1]);
-                            new CommandInsert(newKey, map, false);
+                            new CommandInsert(newKey, map, false, SCANNER);
                         } catch (NumberFormatException e) {
                             System.out.println("type key - Integer");
                         }
@@ -75,7 +80,7 @@ public class Execute {
                     } else {
                         try {
                             int idUpd = Integer.parseInt(commands[1]);
-                            new CommandUpdate(idUpd, map);
+                            new CommandUpdate(idUpd, map, SCANNER);
                         } catch (NumberFormatException e) {
                             System.out.println("type of id - int");
                         }
@@ -125,7 +130,11 @@ public class Execute {
 
                 case "execute_script":
                     if (commands.length == 2) {
-                        new ExecuteScript(map, commands[1]);
+                        try {
+                            new ExecuteScript(map, commands[1]);
+                        } catch (RecursionException e) {
+                            System.out.println(e.getMessage());
+                        }
                     } else {
                         System.out.println("Wrong format");
                     }

@@ -1,30 +1,39 @@
 package commands;
 
+import commands.exceptions.RecursionException;
 import main.MyTreeMap;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class ExecuteScript {
-    public ExecuteScript(MyTreeMap map, String fileName) {
-        String path = fileName;
+    public static TreeSet<File> openFiles = new TreeSet<>();
 
+    public ExecuteScript(MyTreeMap map, String path)
+            throws RecursionException {
         try {
-            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(path));
+            File thisScript = new File(path);
+            if (openFiles.contains(thisScript)) {
+                throw new RecursionException("It's recursion...Ending this script...");
+            } else {
+                InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(path));
+                openFiles.add(thisScript);
 
-            System.out.println(path);
+                System.out.println(path);
 
-            int nowChar;
-            StringBuilder allText = new StringBuilder();
-            while ((nowChar = inputStreamReader.read()) != -1)
-                allText.append((char) nowChar);
+                int nowChar;
+                StringBuilder allText = new StringBuilder();
+                while ((nowChar = inputStreamReader.read()) != -1)
+                    allText.append((char) nowChar);
 
-            Scanner scanOfExecutFile = new Scanner(allText.toString());
+                Scanner scanOfExecuteFile = new Scanner(allText.toString());
 
-            new Execute(true, map, scanOfExecutFile);
+
+                HistoryCommand.addHistory("execute_script START");
+                new Execute(true, map, scanOfExecuteFile);
+                HistoryCommand.addHistory("execute_script END");
+            }
         } catch (FileNotFoundException e) {
             System.out.println("File not found...");
         } catch (IOException e) {

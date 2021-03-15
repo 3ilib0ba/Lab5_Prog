@@ -5,14 +5,15 @@ import main.MyTreeMap;
 import typesfiles.Flat;
 
 import java.util.Map;
+import java.util.Scanner;
 import java.util.TreeMap;
 
 public class CommandUpdate {
-    public CommandUpdate(int idUpd, MyTreeMap map){
+    public CommandUpdate(int idUpd, MyTreeMap map, Scanner scanner){
         try {
             Integer keyOfUpd = checkId(idUpd, map.getMyMap());
             System.out.println(keyOfUpd);
-            new CommandInsert(keyOfUpd, map, true);
+            new CommandInsert(keyOfUpd, map, true, scanner);
         } catch (InvalidArg e) {
             System.out.println(e.getMessage());
         }
